@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   get '/signup' do 
+    binding.pry
     erb :'users/new'
   end
 
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect '/login'
     else
-      redirect '/signup'
+      erb :'users/new'
     end
   end
 
