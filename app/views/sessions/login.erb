@@ -1,6 +1,7 @@
 <h1>Login</h1>
 
 <%= "Unrecognized email and/or password" if @failure %>
+<%= "Account successfully created! Please enter your credentials to login" if @new_user %>
 
 <form action="/sessions" method="post">
   <p>

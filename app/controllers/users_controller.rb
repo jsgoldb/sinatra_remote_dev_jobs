@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   
   get '/signup' do 
-    binding.pry
     erb :'users/new'
   end
 
@@ -10,7 +9,8 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     if @user.save
-      redirect '/login'
+      @new_user = true
+      erb :'sessions/login'
     else
       erb :'users/new'
     end

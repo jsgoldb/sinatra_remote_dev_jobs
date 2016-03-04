@@ -1,0 +1,7 @@
+body { 
+  background-image:url('/img/squairy_light.png');
+}
+
+.navbar-default .navbar-brand {
+  color:rgb(242,145,65);
+}

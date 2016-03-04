@@ -26,9 +26,6 @@ class ApplicationController < Sinatra::Base
       user = User.find_by(email: email) 
       if user && user.authenticate(password)
         session[:email] = user.email
-      else
-        @failure = true
-        erb :'sessions/login'
       end
     end
 
