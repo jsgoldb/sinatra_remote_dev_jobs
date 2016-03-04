@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    "You are logged in as #{session[:email]}"
+    erb :index
   end
 
   helpers do
