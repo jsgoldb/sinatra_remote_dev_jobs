@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   post '/sessions' do
     login(params[:email], params[:password])
     if logged_in?
-      @logged_in = true
       erb :"sessions/index"
     else
       @failure = true

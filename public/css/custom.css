@@ -5,3 +5,16 @@ body {
 .navbar-default .navbar-brand {
   color:rgb(242,145,65);
 }
+
+h1 {
+  color:rgb(242,145,65);
+}
+
+nav {
+  background-image:url('/img/squairy_light.png');
+}
+
+ul.job-list
+{
+    list-style-type: none;
+}
