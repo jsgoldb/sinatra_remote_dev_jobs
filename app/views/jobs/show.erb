@@ -1,9 +1,13 @@
-<h1>Company</h1>
-  <h2><a href="<%= @job_info[:company_site] %>" target="_blank"><%= @job[:company] %></a></h2>
+<% if @job[:company] %>
+  <h1>Company</h1>
+    <h2><a href="<%= @job_info[:company_site] %>" target="_blank"><%= @job[:company] %></a></h2>
+  <h1>Position</h1>
+    <h2><%= @job[:position] %></h2>
+<% else %>
+
 <h1>Location</h1>
   <h2><%= @job[:location] %></h2>
-<h1>Position</h1>
-  <h2><%= @job[:position] %></h2>
+
 <h1>Seniority</h1>
   <h2><%= @job[:seniority] %></h2>
 
