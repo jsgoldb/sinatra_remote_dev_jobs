@@ -6,13 +6,13 @@
   <ul class="job-list">
     <% @jobs.each_with_index do |job, index| %>
       <li>
-        <% if job[:company] %> <!-- for FlexJobs need another way to link -->
+        <% if @site != 'flexjobs' %> 
           <h2><a href ="/<%= @site %>/<%= job[:company].slugify %>"><%= index + 1 %>. <%= job[:company] %></a></h2>
+          <h3><%= job[:position] %></h3>
         <% else %> 
-
+          <h2><a href ="/<%= @site %>/<%= job[:position].slugify %>"><%= index + 1 %>. <%= job[:position] %></a></h2>
         <% end %>
         <h3><%= job[:location] %></h3>
-        <h3><%= job[:position] %></h3>
         <% if job[:seniority] %>
           <h3><%= job[:seniority] %></h3>
         <% end %>

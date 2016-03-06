@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 
   get '/stackcareers' do
-    @jobs = StackScraper.scrape_job_list
+    @jobs = StackScraper.scrape_job_list.compact
     @site = 'stackcareers'
     erb :'jobs/index'
   end
@@ -16,22 +16,21 @@ class JobsController < ApplicationController
   end
 
   get '/flexjobs' do
-    @jobs = FlexJobsScraper.scrape_job_list
+    @jobs = FlexJobsScraper.scrape_job_list.compact
     @site = 'flexjobs'
     erb :'jobs/index'
   end
 
   get '/flexjobs/:id' do
     @job = FlexJobsScraper.scrape_job_list.find do |job|
-      job if job[:company].slugify == params[:id] 
+      job if job[:position].slugify == params[:id] 
     end
-
     @job_info = FlexJobsScraper.scrape_job_page(@job[:job_url])
     erb :'jobs/show'
   end
 
   get '/weworkremotely' do
-    @jobs = WeWorkRemotelyScraper.scrape_job_list
+    @jobs = WeWorkRemotelyScraper.scrape_job_list.compact
     @site = 'weworkremotely'
     erb :'jobs/index'
   end
@@ -46,7 +45,7 @@ class JobsController < ApplicationController
   end
 
   get '/authenticjobs' do
-    @jobs = AuthenticScraper.scrape_job_list
+    @jobs = AuthenticScraper.scrape_job_list.compact
     @site = 'authenticjobs'
     erb :'jobs/index'
   end

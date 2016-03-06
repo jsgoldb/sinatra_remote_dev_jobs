@@ -4,13 +4,16 @@
   <h1>Position</h1>
     <h2><%= @job[:position] %></h2>
 <% else %>
-
+  <h1>Position</h1>
+    <h2><a href="<%= @job[:job_url] %>" target="_blank"><%= @job[:position] %></a></h2>
+<% end %>
 <h1>Location</h1>
   <h2><%= @job[:location] %></h2>
 
-<h1>Seniority</h1>
-  <h2><%= @job[:seniority] %></h2>
-
+<% if @job[:seniority] %>
+  <h1>Seniority</h1>
+    <h2><%= @job[:seniority] %></h2>
+<% end %>
 
 <h1>Description</h1>
   <h4>
