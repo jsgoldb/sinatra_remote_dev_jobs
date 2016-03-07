@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "MoonLight";
+  src: url("../fonts/MoonLight.otf");
+}
+
+@font-face {
+  font-family: "MoonBold";
+  src: url("../fonts/MoonBold.otf");
+}
+
 body { 
   background-image:url('/img/squairy_light.png');
 }
@@ -8,6 +18,7 @@ body {
 
 h1 {
   color:rgb(242,145,65);
+  font-family: "MoonBold";
 }
 
 nav {
