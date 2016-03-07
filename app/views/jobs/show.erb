@@ -32,9 +32,9 @@
 <% if @in_my_jobs  %>
 
   <h1>Notes:</h1>
-    <% @notes.compact.each do |note| %>
-        <%= note.content %><a href="/user/notes/<%= note.id %>/edit">Edit/Delete</a><br>
-    <% end %>
+    <h4><% @notes.compact.each do |note| %>
+        <%= note.content %>    <a href="/user/notes/<%= note.id %>/edit">Edit/Delete</a><br>
+    <% end %></h4>
   <% if @note && @note.errors.any? %>
     <h3>*Error: A blank note cannot be created*</h3>
   <% end %>

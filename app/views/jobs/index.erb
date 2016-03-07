@@ -1,7 +1,9 @@
 
 <h1> <%= @jobs.count %> Jobs Found! </h1>
-<h2>Click the Company name for more info</h2>
-<h2>Click Apply Here to visit the job page</h2>
+<ul>
+  <li><h4>Click the Company name for more info</h4></li>
+  <li><h4>Click Apply Here to visit the job page</h4></li>
+</ul>
 
   <ul class="job-list">
     <% @jobs.each_with_index do |job, index| %>
