@@ -18,10 +18,10 @@ class AuthenticScraper
 
   def self.scrape_job_page(job_url)
     data = Nokogiri::HTML(open(job_url))
-    company_site = data.css("div.title a")
-    company_site.empty? ? company_site = "Not listed." : company_site = company_site.attribute("href").value.to_s
+    company_site = data.css("aside a").attribute("href").value
+    company_site.empty? ? company_site = "Not listed." : company_site 
     attributes = {
-      description: data.css("div.role section#description p").text,
+      description: data.css("div.description").text,
       company_site: company_site
     }
   end

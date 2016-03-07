@@ -32,6 +32,12 @@ class ApplicationController < Sinatra::Base
     def logout
       session.clear
     end
+
+    def user_job_notes(jobs)
+      Note.all.map do |note|
+        note if note.user_id == current_user.id && note.job_id == @current_job.id
+      end
+    end
   end
 
 end

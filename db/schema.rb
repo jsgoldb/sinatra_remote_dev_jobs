@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302230058) do
+ActiveRecord::Schema.define(version: 20160307152407) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "company"
     t.string "location"
     t.string "position"
-    t.string "descrition"
     t.string "job_url"
     t.string "seniority"
     t.string "company_site"
+    t.string "description"
   end
 
   create_table "notes", force: :cascade do |t|

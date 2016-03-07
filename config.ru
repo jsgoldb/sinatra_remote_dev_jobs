@@ -10,3 +10,4 @@ run ApplicationController
 use SessionsController
 use JobsController
 use UsersController
+use NotesController

@@ -1,0 +1,27 @@
+<% if @added == true %>
+  <h4>*<%= @job.position %> at <%= @job.company %> added to My Jobs*</h4>
+<% end %>
+
+<h1>My Jobs</h1>
+<h2>Open each job to add notes and change Application Status</h2>
+
+<% @user.jobs.each do |job| %>
+
+  <h3><a href="/myjobs/<%= job.id %>"><%= job.position %> at 
+  <% if job.company %>
+    <%= job.company %></a></h3><br><br>
+  <% else %>
+    (name hidden by Flexjobs)</a>
+  <% end %>
+
+  <h4>Notes:</h4>
+    <% @notes.each do |note| %>
+      <% if note.job_id == job.id %>
+        <%= note.content %><br>
+      <% end %>
+    <% end %>
+  <br><br>
+
+  <h4>Status:</h4>
+
+<% end %>
