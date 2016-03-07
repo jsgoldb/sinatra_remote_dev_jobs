@@ -66,4 +66,16 @@ class SessionsController < ApplicationController
     end
   end
 
+  get "/myjobs/:id/delete" do
+    if logged_in? && current_user.jobs.include?(Job.find(params[:id]))
+      @job = Job.find(params[:id])
+      current_user.jobs.delete(@job.id)
+    else
+      redirect '/login'
+    end
+    redirect '/users/myjobs'
+  end
+
+
+
 end
