@@ -1,0 +1,10 @@
+<h1>Jobs Applied For</h1>
+
+<% if @none_applied_for == true %>
+  <h2>You have not applied for any jobs.</h2>
+<% else %>
+  <% @jobs.each do |job| %>
+    <h2><a href="/myjobs/<%= job.id %>"><%= job.position %> at 
+    <%= job.company %></h2><br>
+  <% end %>
+<% end %>

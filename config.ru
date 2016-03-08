@@ -11,3 +11,5 @@ use SessionsController
 use JobsController
 use UsersController
 use NotesController
+use AppliedController
+use MyJobsController
