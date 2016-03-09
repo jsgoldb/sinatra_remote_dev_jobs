@@ -1,10 +1,14 @@
 <% if !@applied %>
   <h4><a href="/myjobs/<%= @current_job.id %>/applied">Mark as Applied</a>
-  <% else %>
-    <h3>You have applied for this job</h3>
-    <h4><a href="/myjobs/applied/<%= @current_job.id %>/remove">Remove from Jobs Applied For</a></h4>
-  <% end %>
+<% else %>
+  <h3>You have applied for this job</h3>
+  <h4><a href="/myjobs/applied/<%= @current_job.id %>/remove">Remove from Jobs Applied For</a></h4>
+<% end %>
+
+<% if @user.jobs.include?(@current_job) %>
   <h4><a href="/myjobs/<%= @current_job.id %>/delete">Remove from My Jobs</a></h4>
+<% end %>
+
 <% if @current_job[:company] %>
   <h1>Company</h1>
     <h2><a href="<%= @current_job[:company_site] %>" target="_blank"><%= @current_job[:company] %></a></h2>
@@ -49,4 +53,5 @@
     </form>
 
 <% end %>
+
 

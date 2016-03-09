@@ -1,3 +1,6 @@
+<% if @added == true %>
+  <h4>*<%= @job.position %> at <%= @job.company %> added to My Jobs*</h4>
+<% end %>
 
 <h1> <%= @jobs.count %> Jobs Found! </h1>
 <ul>
