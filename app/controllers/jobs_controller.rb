@@ -20,6 +20,7 @@ class JobsController < ApplicationController
       seniority: @job[:seniority], company_site: @job_info[:company_site])
     @user = current_user
     @notes = user_job_notes(@user.jobs)
+    @site = 'stackcareers'
     erb :'jobs/show'
   end
 
@@ -41,6 +42,7 @@ class JobsController < ApplicationController
       seniority: @job[:seniority])
     @user = current_user
     @notes = user_job_notes(@user.jobs)
+    @site = 'flexjobs'
     erb :'jobs/show'
   end
 
@@ -64,6 +66,7 @@ class JobsController < ApplicationController
       seniority: @job[:seniority], company_site: @job_info[:company_site])
     @user = current_user
     @notes = user_job_notes(@user.jobs)
+    @site = 'weworkremotely'
     erb :'jobs/show'
   end
 
@@ -88,6 +91,7 @@ class JobsController < ApplicationController
 
     @user = current_user
     @notes = user_job_notes(@user.jobs)
+    @site = 'authenticjobs'
     erb :'jobs/show'
   end
 

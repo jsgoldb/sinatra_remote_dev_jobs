@@ -5,11 +5,11 @@ class NotesController < ApplicationController
       @note = Note.create(content: params[:note])
       current_user.notes << @note
       @current_job = Job.find(params[:job_id])
-      #@note.job = Job.find(params[:jobid])
       @current_job.notes << @note
       @user = current_user
       @notes = user_job_notes(@user.jobs)
       @in_my_jobs = true
+      @site = nil
       erb :'jobs/show'
     else 
       redirect '/login'

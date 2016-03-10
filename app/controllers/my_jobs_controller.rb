@@ -12,7 +12,7 @@ class MyJobsController < ApplicationController
     end
   end
 
-  get "/myjobs/:id/added" do
+  get "/myjobs/:job_site/:id/added" do
     if logged_in?
       @job = Job.find(params[:id])
       if !current_user.jobs.find do |job| 
@@ -20,6 +20,7 @@ class MyJobsController < ApplicationController
       end
         current_user.jobs << @job
       end
+      @site = params[:job_site]
       @user = current_user 
       @added = true
       @notes = Note.all.map do |note|
@@ -42,6 +43,7 @@ class MyJobsController < ApplicationController
       else
         @applied = false
       end
+      @site = 'none'
       erb :'jobs/show'
     else
       redirect '/login'
@@ -50,12 +52,16 @@ class MyJobsController < ApplicationController
 
   get "/myjobs/:id/delete" do
     if logged_in? && current_user.jobs.include?(Job.find(params[:id]))
-      @job = Job.find(params[:id])
-      current_user.jobs.delete(@job.id)
+      @current_job = Job.find(params[:id])
+      current_user.jobs.delete(@current_job.id)
+      @in_my_jobs = false
+      @user = current_user
+      @applied = false
+      @site = 'none'
     else
       redirect '/login'
     end
-    redirect '/users/myjobs'
+    erb :'jobs/show'
   end
 
 end

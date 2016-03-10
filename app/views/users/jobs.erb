@@ -1,5 +1,8 @@
 <% if @added == true %>
   <h4>*<%= @job.position %> at <%= @job.company %> added to My Jobs*</h4>
+  <% if @site != 'none' %>
+    <h4><a href="/<%= @site %>">Back to Search Results</a></h4>
+  <% end %>
 <% end %>
 
 <h1>My Jobs</h1>
