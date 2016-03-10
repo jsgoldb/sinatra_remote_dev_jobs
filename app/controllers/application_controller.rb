@@ -38,6 +38,8 @@ class ApplicationController < Sinatra::Base
         note if note.user_id == current_user.id && note.job_id == @current_job.id
       end
     end
+
+
   end
 
 end
