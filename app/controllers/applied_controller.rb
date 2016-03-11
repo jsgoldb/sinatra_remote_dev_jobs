@@ -1,4 +1,4 @@
-class AppliedController < MyJobsController
+class AppliedController < ApplicationController
   
   get '/myjobs/:id/applied' do
     @job = Job.find(params[:id])
