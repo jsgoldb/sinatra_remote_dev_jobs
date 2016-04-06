@@ -1,9 +1,9 @@
 class StackScraper
   def self.scrape_job_list
-    data = Nokogiri::HTML(open("http://careers.stackoverflow.com/jobs?searchTerm=junior&allowsremote=true"))
-    base = "http://careers.stackoverflow.com"
+    data = Nokogiri::HTML(open("https://careers.stackoverflow.com/jobs?searchTerm=junior&allowsremote=true"))
+    base = "http://stackoverflow.com"
     data.css("div.-item.-job").map do |job|
-      job_link = URI.join(base, job.css("h1 .job-link").attribute('href').value.to_s)
+      job_link = URI.join(base, job.css("h1 .job-link").attribute('href').value.to_s.split(":").join("s:"))
       job_page = Nokogiri::HTML(open("#{job_link}"))
       seniority = job_page.css("li.seniority").text
       seniority.empty? ?  seniority = nil : seniority = seniority.split("\r\n")[1].split(" ").join(" ")
