@@ -11,15 +11,15 @@ Bundler.require(:default, "production")
 #   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 #   )
 
-configure :development do
-  #set :database, 'sqlite://development.db'
- ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
-   )
-end
+# configure :development do
+#   #set :database, 'sqlite://development.db'
+#  ActiveRecord::Base.establish_connection(
+#   :adapter => "sqlite3",
+#   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
+#    )
+# end
  
-configure :production do
+configure :development, :production do
   # Database connection
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
  
