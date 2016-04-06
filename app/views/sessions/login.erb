@@ -1,12 +1,12 @@
 <h1>Login</h1>
 
-<%= "Unrecognized email and/or password" if @failure %>
+<%= "Unrecognized username and/or password" if @failure %>
 <%= "Account successfully created! Please enter your credentials to login" if @new_user %>
 
 <form action="/sessions" method="post">
   <p>
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="email">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username">
   </p>
   <p>
     <label for="password">Password:</label>

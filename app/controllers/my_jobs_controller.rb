@@ -2,7 +2,7 @@ class MyJobsController < ApplicationController
 
   get "/users/myjobs" do
     if logged_in?
-      @user = User.find_by(email: current_user.email)
+      @user = User.find_by(username: current_user.username)
       @notes = Note.all.map do |note|
         note if (note.user_id == current_user.id)
       end.compact

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   post '/sessions' do
-    login(params[:email], params[:password])
+    login(params[:username], params[:password])
     if logged_in?
       erb :"sessions/index"
     else
