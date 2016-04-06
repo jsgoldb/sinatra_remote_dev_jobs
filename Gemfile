@@ -13,9 +13,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'nokogiri'
 gem 'slugify'
 
-# group :development do
-#   gem 'sqlite3'
-# end
  
 group :development, :production do
   gem 'pg' # this gem is required to use postgres on Heroku
