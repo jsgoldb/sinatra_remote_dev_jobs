@@ -3,7 +3,6 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem 'sinatra'
-gem 'sqlite3'
 gem 'activerecord', :require => "active_record"
 gem 'rake'
 gem 'pry'
@@ -13,3 +12,11 @@ gem 'shotgun'
 gem 'bcrypt', '~> 3.1.7'
 gem 'nokogiri'
 gem 'slugify'
+
+group :development do
+  gem 'sqlite3'
+end
+ 
+group :production do
+  gem 'pg' # this gem is required to use postgres on Heroku
+end
