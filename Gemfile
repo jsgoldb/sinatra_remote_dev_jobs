@@ -14,6 +14,11 @@ gem 'nokogiri'
 gem 'slugify'
 
  
+# group :development do
+#   gem 'sqlite3'
+# end
+
 group :development, :production do
-  gem 'pg' # this gem is required to use postgres on Heroku
+  gem 'pg'
+  gem "activerecord-postgresql-adapter"
 end
